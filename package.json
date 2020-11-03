@@ -20,7 +20,9 @@
   "files": [
     "dist/**/*.{css,map,scss}"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "popper": "^1.0.1"
+  },
   "devDependencies": {
     "@lodder/grunt-postcss": "^2.0.4",
     "autoprefixer": "^9.8.6",

@@ -38,7 +38,10 @@ const SWATCHES = [
   'spacelab',
   'superhero',
   'united',
-  'yeti'
+  'yeti',
+
+  'odette',
+  'berkeley'
 ];
 let BUILD_THEME = '';
 
@@ -217,6 +220,8 @@ module.exports = grunt => {
     });
     grunt.config.set('copy.css.files.0.cwd', themeDir);
     grunt.config.set('copy.css.files.0.dest', path.join(DOCS_DEST, theme));
+    if (theme=="odette") {grunt.config.set('copy.css.files.0.dest', "../elstir/src/elstir/themes/odette/css")};
+    if (theme=="berkeley") {grunt.config.set('copy.css.files.0.dest', "../elstir/src/elstir/themes/berkeley/css")};
     grunt.config.set('cssmin.dist', {
       src: cssDest,
       dest: cssDestMin
