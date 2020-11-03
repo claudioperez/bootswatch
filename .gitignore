@@ -9,3 +9,6 @@ _site
 
 # Local Netlify folder
 .netlify
+
+/dist/**.css
+/dist/**.min.css
