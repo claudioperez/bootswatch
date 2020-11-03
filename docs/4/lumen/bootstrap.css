@@ -1,12 +1,12 @@
 /*!
- * Bootswatch v4.5.2
+ * Bootswatch v4.5.3
  * Homepage: https://bootswatch.com
  * Copyright 2012-2020 Thomas Park
  * Licensed under MIT
  * Based on Bootstrap
 */
 /*!
- * Bootstrap v4.5.2 (https://getbootstrap.com/)
+ * Bootstrap v4.5.3 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors
  * Copyright 2011-2020 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
@@ -224,6 +224,7 @@ caption {
 
 th {
   text-align: inherit;
+  text-align: -webkit-match-parent;
 }
 
 label {
@@ -3758,6 +3759,8 @@ input[type="button"].btn-block {
   display: block;
   min-height: 1.3125rem;
   padding-left: 1.5rem;
+  -webkit-print-color-adjust: exact;
+  color-adjust: exact;
 }
 
 .custom-control-inline {
@@ -5297,6 +5300,7 @@ a.badge-dark:focus, a.badge-dark.focus {
   position: absolute;
   top: 0;
   right: 0;
+  z-index: 2;
   padding: 0.75rem 1.25rem;
   color: inherit;
 }
@@ -10171,7 +10175,7 @@ a.text-dark:hover, a.text-dark:focus {
 
 .text-break {
   word-break: break-word !important;
-  overflow-wrap: break-word !important;
+  word-wrap: break-word !important;
 }
 
 .text-reset {
@@ -10496,11 +10500,11 @@ a.text-dark:hover, a.text-dark:focus {
 .nav-tabs .nav-link, .nav-tabs .nav-link.disabled, .nav-tabs .nav-link.disabled:hover, .nav-tabs .nav-link.disabled:focus {
   margin-top: 6px;
   border-color: #f0f0f0;
-  transition: all .2s ease-in-out;
+  transition: padding-bottom .2s ease-in-out, margin-top .2s ease-in-out, border-bottom .2s ease-in-out;
 }
 
 .nav-tabs .nav-link:not(.disabled):hover, .nav-tabs .nav-link:not(.disabled):focus, .nav-tabs .nav-link.active {
-  padding-bottom: calc(.5rem + 6px);
+  padding-bottom: calc(0.5rem + 6px);
   border-bottom-color: transparent;
   margin-top: 0;
 }
@@ -10688,4 +10692,3 @@ a.list-group-item-danger.active:hover, a.list-group-item-danger.active:focus {
 .toast .close:not(:disabled):not(.disabled):focus {
   color: #000;
 }
-/*# sourceMappingURL=bootstrap.css.map */

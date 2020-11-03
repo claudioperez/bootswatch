@@ -54,6 +54,7 @@ module.exports = grunt => {
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-sass');
+  grunt.loadNpmTasks('grunt-html');
 
   // Force use of Unix newlines
   grunt.util.linefeed = '\n';
@@ -98,8 +99,7 @@ module.exports = grunt => {
           cwd: 'dist',
           src: [
             '**/*.css',
-            '**/*.scss',
-            '**/*.map'
+            '**/*.scss'
           ],
           dest: DOCS_DEST
         }]
@@ -109,9 +109,7 @@ module.exports = grunt => {
       options: {
         implementation: sass,
         outputStyle: 'expanded',
-        precision: 6,
-        sourceMap: true,
-        sourceMapContents: true
+        precision: 6
       },
       dist: {
         src: [],
@@ -129,12 +127,7 @@ module.exports = grunt => {
       options: {
         processors: [
           autoprefixer({ cascade: false })
-        ],
-        map: {
-          inline: false,
-          annotation: true,
-          sourcesContent: true
-        }
+        ]
       },
       dist: {
         src: [],
@@ -152,13 +145,27 @@ module.exports = grunt => {
             specialComments: 'all',
             roundingPrecision: 6
           }
-        },
-        sourceMap: true
+        }
       },
       dist: {
         src: [],
         dest: ''
       }
+    },
+    htmllint: {
+      options: {
+        ignore: [
+          /Attribute “autocomplete” is only allowed when the input type is.*/,
+          /Attribute “autocomplete” not allowed on element “button” at this point./,
+          /Bad value “” for attribute “action” on element “form”./
+        ]
+      },
+      src: [
+        'docs/**/*.html',
+        '!docs/**/bower_components/**/*.html',
+        '!docs/_vendor/**/*.html',
+        '!docs/2/**/*.html'
+      ]
     },
     connect: {
       options: {
@@ -252,6 +259,7 @@ module.exports = grunt => {
   });
 
   grunt.registerTask('vendor', 'copy:vendor');
+
   grunt.registerTask('docs-css', ['sass:docs', 'postcss:docs']);
 
   grunt.registerTask('server', 'connect:keepalive');
