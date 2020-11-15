@@ -525,3 +525,10 @@ h1:hover .headerlink, h2:hover .headerlink, h3:hover .headerlink, h4:hover .head
 // pre {
 //   padding: 0.5em;
 // }
+
+// Resource ===================================================================
+.rsrc {
+  padding: 16px;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+}
