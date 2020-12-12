@@ -27,7 +27,7 @@
   "devDependencies": {
     "@lodder/grunt-postcss": "^3.0.0",
     "autoprefixer": "^10.1.0",
-    "bootstrap": "^4.5.3",
+    "bootstrap": "^5.0.0-beta1",
     "font-awesome": "^4.7.0",
     "grunt": "^1.3.0",
     "grunt-contrib-clean": "^2.0.0",
